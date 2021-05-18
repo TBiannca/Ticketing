@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Events</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Date</th>
+      <th>Location</th>
+      <th>Seats</th>
+      <th>Price</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @events.each do |event| %>
+      <tr>
+        <td><%= event.name %></td>
+        <td><%= event.date %></td>
+        <td><%= event.location %></td>
+        <td><%= event.seats %></td>
+        <td><%= event.price %></td>
+        <td><%= link_to 'Show', event %></td>
+        <td><%= link_to 'Buy', ticketing_code_path(event), data: { confirm: 'Are you sure you want to pay ' + event.price.to_s + '$ ?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Event', new_event_path %>
