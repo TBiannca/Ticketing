@@ -1,11 +1,17 @@
 <h1>Ticketing#index</h1>
 
 
-<%= form_with url: events_path, method: :get do |form| %>
-  <%= form.label :name, "Your name:" %>
-  <%= form.text_field :name %>
 
-  <%= form.label :email, "Your email:" %>
-  <%= form.text_field :email %></br>
-  <%= form.submit "Submit" %>
+<%= form_with url: events_path, local: true, method: :get do %>
+  <div>
+    <%= label_tag "name", "Your name:" %>
+    <%= text_field_tag "name", nil, :required => true %>
+  </div>
+
+  <div>
+    <%= label "email", "Your email:" %>
+    <%= text_field_tag "email", nil, :required => true %>
+  </div>
+
+  <%= submit_tag "Submit" %>
 <% end %>

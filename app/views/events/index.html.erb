@@ -23,7 +23,9 @@
         <td><%= event.seats %></td>
         <td><%= event.price %></td>
         <td><%= link_to 'Show', event %></td>
-        <td><%= link_to 'Buy', ticketing_code_path(event), data: { confirm: 'Are you sure you want to pay ' + event.price.to_s + '$ ?' } %></td>
+        <% if event.seats != 0 %>
+          <td><%= link_to 'Buy', ticketing_code_path(:name => @name, :email => @email, :event => event), data: { confirm: 'Are you sure you want to pay ' + event.price.to_s + '$ ?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
