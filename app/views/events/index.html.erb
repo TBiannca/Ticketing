@@ -2,14 +2,14 @@
 
 <h1>Events</h1>
 
-<table>
-  <thead>
+<table class="table">
+  <thead class ="thead-dark">
     <tr>
-      <th>Name</th>
-      <th>Date</th>
-      <th>Location</th>
-      <th>Seats</th>
-      <th>Price</th>
+      <th scope="col">Name</th>
+      <th scope="col">Date</th>
+      <th scope="col">Location</th>
+      <th scope="col">Seats</th>
+      <th scope="col">Price</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -24,7 +24,7 @@
         <td><%= event.price %></td>
         <td><%= link_to 'Show', event %></td>
         <% if event.seats != 0 %>
-          <td><%= link_to 'Buy', ticketing_code_path(:name => @name, :email => @email, :event => event), data: { confirm: 'Are you sure you want to pay ' + event.price.to_s + '$ ?' } %></td>
+          <td><button type="button" class="btn btn-outline-success"><%= link_to 'Buy', ticketing_code_path(:name => @name, :email => @email, :event => event), data: { confirm: 'Are you sure you want to pay ' + event.price.to_s + '$ ?' } %></button></td>
         <% end %>
       </tr>
     <% end %>

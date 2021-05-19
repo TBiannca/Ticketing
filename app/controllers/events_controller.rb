@@ -5,6 +5,8 @@ class EventsController < ApplicationController
   def index
     @events = Event.all
     @name = params[:name]
+    @email = params[:email]
+
 
   end
 

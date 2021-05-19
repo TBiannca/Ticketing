@@ -1,6 +1,6 @@
 <%= form_with(model: event) do |form| %>
   <% if event.errors.any? %>
-    <div id="error_explanation">
+    <div id="error_explanation" class="form-group">
       <h2><%= pluralize(event.errors.count, "error") %> prohibited this event from being saved:</h2>
 
       <ul>
@@ -11,29 +11,29 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="field" >
     <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= form.text_field :name, class: "form-control"%>
   </div>
 
   <div class="field">
     <%= form.label :date %>
-    <%= form.datetime_select :date %>
+    <%= form.datetime_select :date, class: "form-control"%>
   </div>
 
   <div class="field">
     <%= form.label :location %>
-    <%= form.text_field :location %>
+    <%= form.text_field :location, class: "form-control" %>
   </div>
 
   <div class="field">
     <%= form.label :seats %>
-    <%= form.number_field :seats %>
+    <%= form.number_field :seats, class: "form-control" %>
   </div>
 
   <div class="field">
     <%= form.label :price %>
-    <%= form.number_field :price %>
+    <%= form.number_field :price, class: "form-control" %>
   </div>
 
   <div class="actions">
